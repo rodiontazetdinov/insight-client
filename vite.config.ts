@@ -6,7 +6,7 @@ import { nodePolyfills } from 'vite-plugin-node-polyfills';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/insight-client/',
+  base: '/bets-client/',
   plugins: [
     // Allows using React dev server along with building a React application with Vite.
     // https://npmjs.com/package/@vitejs/plugin-react-swc
@@ -23,7 +23,7 @@ export default defineConfig({
   server: {
     // Uncomment this line if you want to expose your dev server and access it from the devices
     // in the same network.
-    host: false,
+    host: true,
   },
 });
 

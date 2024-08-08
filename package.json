@@ -1,9 +1,9 @@
 {
-  "name": "insight-client",
+  "name": "bets-client",
   "private": true,
   "version": "0.0.1",
   "type": "module",
-  "homepage": "https://rodiontazetdinov.github.io/insight-client",
+  "homepage": "https://rodiontazetdinov.github.io/bets-client",
   "scripts": {
     "deploy": "gh-pages -d dist",
     "dev": "vite",

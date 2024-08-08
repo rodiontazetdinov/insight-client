@@ -29,9 +29,8 @@ PROGRAM{
   DECLPROC $TimerContract$_fun_notify
   DECLPROC $TimerContract$_fun_requireOwner
   DECLPROC $TimerContract$_fun_owner
-  DECLPROC $SendParameters$_constructor_to_value_mode
+  DECLPROC $SendParameters$_constructor_to_value
   DECLPROC $DeployOk$_constructor_queryId
-  DECLPROC %$TimerContract$_internal_empty
   DECLPROC $TimerContract$_internal_binary_SecondAddressToPay
   DECLPROC $TimerContract$_internal_text_f7700733c79dfd229df95f1e55e2d1252c382f0d3c28dcb20563845e8c2d9846
   DECLPROC $TimerContract$_internal_text_6f3575ac1ff681c8cbc50a4cc1ca6f4687f9da770212d6df8cfe84c22d861d9f
@@ -384,27 +383,15 @@ PROGRAM{
   $TimerContract$_fun_owner PROCREF:<{
     s2 PUSH
   }>
-  $SendParameters$_constructor_to_value_mode PROCINLINE:<{
+  $SendParameters$_constructor_to_value PROCINLINE:<{
     TRUE
-    3 -ROLL
+    -ROT
+    0 PUSHINT
     PUSHNULL
     PUSHNULL
     PUSHNULL
   }>
   $DeployOk$_constructor_queryId PROCINLINE:<{
-  }>
-  %$TimerContract$_internal_empty PROCINLINE:<{
-    B{b5ee9c7241010101001800002c656d707479206d657373616765207265636569766564075bad71} B>boc <s PUSHSLICE
-    x{5b44454255475d2046696c6520636f6e7472616374735c74696d65725f636f6e74726163742e746163743a31383a39} PUSHSLICE
-    STRDUMP
-    DROP
-    STRDUMP
-    DROP
-    41168 PUSHINT
-    __tact_my_balance INLINECALLDICT
-    5000000000 PUSHINT
-    LEQ
-    THROWANYIFNOT
   }>
   $TimerContract$_internal_binary_SecondAddressToPay PROCINLINE:<{
     3 -ROLL
@@ -413,25 +400,35 @@ PROGRAM{
     s1 s2 XCHG
   }>
   $TimerContract$_internal_text_f7700733c79dfd229df95f1e55e2d1252c382f0d3c28dcb20563845e8c2d9846 PROCINLINE:<{
-    DROP
-    NOW
+    OVER
+    ISNULL
+    NOT
+    IF:<{
+      DROP
+      NOW
+    }>
   }>
   $TimerContract$_internal_text_6f3575ac1ff681c8cbc50a4cc1ca6f4687f9da770212d6df8cfe84c22d861d9f PROCINLINE:<{
     58790 PUSHINT
     NOW
-    s0 s2 XCHG
+    s2 PUSH
     __tact_not_null INLINECALLDICT
-    s1 s2 XCHG
+    1 3 BLKDROP2
     SUB
-    70 GTINT
+    1 GTINT
     THROWANYIFNOT
     DUP
     __tact_not_null INLINECALLDICT
-    300000000 PUSHINT
-    1 PUSHINT
-    $SendParameters$_constructor_to_value_mode INLINECALLDICT
+    500000000 PUSHINT
+    $SendParameters$_constructor_to_value INLINECALLDICT
     $global_send INLINECALLDICT
     PUSHNULL
+    B{b5ee9c7241010101000f00001a54696d65722073746f70706564e2346195} B>boc <s PUSHSLICE
+    x{5b44454255475d2046696c6520636f6e7472616374735c74696d65725f636f6e74726163742e746163743a33363a3133} PUSHSLICE
+    STRDUMP
+    DROP
+    STRDUMP
+    DROP
   }>
   $TimerContract$_internal_binary_Deploy PROCINLINE:<{
     $DeployOk$_constructor_queryId INLINECALLDICT
@@ -467,7 +464,7 @@ PROGRAM{
     86142586315491086060343270784266291122 PUSHINT
   }>
   get_abi_ipfs PROC:<{
-    x{697066733a2f2f516d55744844466d6a7341784634453150357333623372677a524561585a526b537a3735364474597357417a4472} PUSHSLICE
+    x{697066733a2f2f516d6243377a4159744b724e66656d53564a644855765772343167704673614c4b716e323363514d746a38533473} PUSHSLICE
   }>
   lazy_deployment_completed PROC:<{
     c4 PUSH
@@ -491,17 +488,6 @@ PROGRAM{
       DROP
       DUP
       32 PLDU
-    }>
-    DUP
-    0 EQINT
-    s2 PUSH
-    SBITS
-    33 LESSINT
-    AND
-    IFJMP:<{
-      2DROP
-      %$TimerContract$_internal_empty INLINECALLDICT
-      TRUE
     }>
     DUP
     68485749 PUSHINT

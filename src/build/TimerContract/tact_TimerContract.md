@@ -1,6 +1,6 @@
 # TACT Compilation Report
 Contract: TimerContract
-BOC Size: 1247 bytes
+BOC Size: 1206 bytes
 
 # Types
 Total Types: 9
@@ -77,5 +77,4 @@ Total Get Methods: 4
 135: Code of a contract was not found
 136: Invalid address
 137: Masterchain support is not enabled for this contract
-41168: Balance getting too high
 58790: Did not wait long enough

@@ -5,7 +5,7 @@ import { type FC, useEffect, useMemo } from "react";
 
 import { App } from "@/components/App.tsx";
 import { ErrorBoundary } from "@/components/ErrorBoundary.tsx";
-import { APP_NAME, IS_PRODUCTION, MANIFEST_URL, TELEMETRY_API_KEY, TELEMETRY_PRODUCT_ID, TMA_URL } from "@/utils/config";
+import { APP_NAME, IS_PRODUCTION, MANIFEST_URL, TMA_URL } from "@/utils/config";
 
 const ErrorBoundaryError: FC<{ error: unknown }> = ({ error }) => (
   <div>
@@ -35,8 +35,8 @@ const Inner: FC = () => {
 
   return (
     <TwaAnalyticsProvider
-      projectId={TELEMETRY_PRODUCT_ID}
-      apiKey={TELEMETRY_API_KEY}
+      projectId="f3e336f0-31f4-4e8b-a943-8f03308f2798"
+      apiKey="b89d1bb2-9bb2-405e-b534-3ced2869eb60"
       appName={APP_NAME}
     >
       <TonConnectUIProvider

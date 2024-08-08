@@ -93,8 +93,8 @@ builder $TimerContract$_store(builder build_0, (slice, slice, int) v) inline;
 ;; $TimerContract$_fun_owner
 ((slice, slice, int), slice) $TimerContract$_fun_owner((slice, slice, int) $self) impure inline_ref;
 
-;; $SendParameters$_constructor_to_value_mode
-((int, slice, int, int, cell, cell, cell)) $SendParameters$_constructor_to_value_mode(slice to, int value, int mode) inline;
+;; $SendParameters$_constructor_to_value
+((int, slice, int, int, cell, cell, cell)) $SendParameters$_constructor_to_value(slice to, int value) inline;
 
 ;; $DeployOk$_constructor_queryId
 ((int)) $DeployOk$_constructor_queryId(int queryId) inline;

@@ -7,7 +7,6 @@ import { Root } from '@/components/Root';
 import './mockEnv.ts';
 
 import '@telegram-apps/telegram-ui/dist/styles.css';
-import './font/UnformitalBlack.ttf';
 import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(<Root/>);

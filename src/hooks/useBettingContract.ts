@@ -5,26 +5,23 @@ import { useAsyncInitialize } from "./useAsyncInitialize";
 import { Address, OpenedContract, toNano } from "@ton/core";
 import { CONTRACT_ADDRESS } from "@/utils/config";
 import { useTonConnect } from "./useTonConnect";
-import { TimerContract } from "@/wrappers/TimerContract";
 
-export function useTimerContract() {
+export function useBettingContract() {
   const client = useTonClient();
   const { sender } = useTonConnect();
 
-  const sleep = (time: number) =>
-    new Promise((resolve) => setTimeout(resolve, time));
+  const sleep = (time: number) => new Promise((resolve) => setTimeout(resolve, time));
 
   const [contractData, setContractData] = useState<null | {
-    secondAddressToPay: Address;
-    timerStartTime: number;
+    betsCounter: number;
   }>();
 
   const bettingContract = useAsyncInitialize(async () => {
     if (!client) return;
-    const contract = TimerContract.fromAddress(
-      Address.parse("EQBq28gTj1wdfPGRX2t-SoZC3TZIess10f8fcp4-wYpsHu-z")
+    const contract = BettingContract.fromAddress(
+      Address.parse(CONTRACT_ADDRESS)
     );
-    return client.open(contract) as OpenedContract<TimerContract>;
+    return client.open(contract) as OpenedContract<BettingContract>;
   }, [client]);
 
   useEffect(() => {
@@ -38,37 +35,28 @@ export function useTimerContract() {
     //   await sleep(5000);
     // //   getValue();
     // }
+    
     // getValue();
   }, [bettingContract]);
 
   return {
     // contract_address: bettingContract?.address.toString(),
     ...contractData,
-    sendStart: async () => {
-      return await bettingContract?.send(
-        sender,
-        { value: toNano(0.05) },
-        "start"
-      );
+    sendNewBet: (
+      chosenTeam: string,
+      hackatonPosition: bigint,
+      buildLink: string
+    ) => {
+      const message: NewBet = {
+        $$type: "NewBet",
+        chosenTeam,
+        hackatonPosition,
+        buildLink,
+      };
+      return bettingContract?.send(sender, { value: toNano(0.05) }, message);
     },
-    getSecondAddressToPay: async () => {
-      return await bettingContract?.getSecondAddressToPay();
-    },
-    sendStop: async () => {
-        return await bettingContract?.send(
-            sender,
-            { value: toNano(0.05) },
-            "stop"
-          );
+    getBetsCounter: async () => {
+        return await bettingContract?.getBetsCounter();
       },
-    getTimerStartTime: async () => {
-      return await bettingContract?.getTimerStartTime();
-    },
-    getOwner: async () => {
-      return await bettingContract?.getOwner();
-    },
-    getBalance: async () => {
-      return await bettingContract?.getBalance();
-    },
   };
 }
