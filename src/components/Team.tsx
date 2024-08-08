@@ -6,38 +6,38 @@ import { useTonConnect } from "@/hooks/useTonConnect";
 import { useBettingContract } from "@/hooks/useBettingContract";
 
 interface TeamProps {
-  teamName: string;
-  teamLink: string;
-  teamMVP: string;
+  text: string;
+  owner: string;
+  chat: string;
   teamTrack: string;
-  place: string;
+  price: string;
 }
 
 export const Team: FC<TeamProps> = ({
-  teamName,
-  teamLink,
-  teamMVP,
-  // teamTrack,
-  place,
+  text,
+  owner,
+  chat,
+  teamTrack,
+  price,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const { connected } = useTonConnect();
   const { sendNewBet } = useBettingContract();
 
-  const handleBackground = (place: string) => {
-    if (place?.includes("Social Web3")) {
+  const handleBackground = (teamTrack: string) => {
+    if (teamTrack?.includes("Bot")) {
       return "bg-sky-500";
     }
-    if (place?.includes("eCommerce")) {
+    if (teamTrack?.includes("Frontend")) {
       return "bg-rose-500";
     }
-    if (place?.includes("GameFI & Onboarding")) {
+    if (teamTrack?.includes("Blockchain")) {
       return "bg-yellow-300";
     }
-    if (place?.includes("DeFi")) {
+    if (teamTrack?.includes("Design")) {
       return "bg-green-400";
     }
-    if (place?.includes("Kucoin")) {
+    if (teamTrack?.includes("Backend")) {
       return "bg-gray-900";
     }
   };
@@ -50,33 +50,36 @@ export const Team: FC<TeamProps> = ({
       onClick={() => !isOpen && setIsOpen(!isOpen)}
     >
       <p className="text-[18px] font-bold text-gray-900 p-2 truncate">
-        {teamName}
+        {text}
       </p>
       {isOpen && (
         <>
+          <p className="text-[18px] font-bold text-gray-900 p-2 truncate">Куратор</p>
+
           <a
             className="text-[18px] font-bold  p-2 text-blue-500 truncate"
-            href={teamLink}
+            href={owner}
             target="_blank"
           >
-            {teamLink}
+            {owner}
           </a>
+          <p className="text-[18px] font-bold text-gray-900 p-2 truncate">Референс</p>
           <a
             className="text-[18px] font-bold text-blue-500 p-2 truncate"
-            href={teamMVP}
+            href={chat}
             target="_blank"
           >
-            {teamMVP}
+            {chat}
           </a>
           <p
             className={`text-[18px] font-bold ${handleBackground(
-              place
+              teamTrack
             )} text-white p-2`}
             text-white
           >
-            {place}
+            {price}
           </p>
-          <button
+          {/* <button
             className={cls({
               "flex items-center justify-center gap-2": true,
               "text-[18px] font-bold text-white": !connected,
@@ -87,11 +90,11 @@ export const Team: FC<TeamProps> = ({
               "p-2 mt-2": true,
             })}
             disabled={!connected}
-            onClick={() => sendNewBet(teamName, 0n, teamLink)}
+            onClick={() => sendNewBet(text, 0n, owner)}
           >
             Ты победишь <img className="w-8 h-8" src={rocketIcon} />
             (1 TON)
-          </button>
+          </button> */}
         </>
       )}
     </li>

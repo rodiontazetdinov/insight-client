@@ -921,3 +921,76 @@ export const realFinalists = [
     place: "GameFI & Onboarding nominee",
   },
 ];
+
+export const realQuests = [
+  {
+    text: "Нарисовать главный экран",
+    owner: "https://t.me/rodiontazetdinov",
+    chat: "https://t.me/+MSIJ7mTxWdoxZDZi",
+    teamTrack: "Design",
+    price: "500 IC",
+  },
+  {
+    text: "Нарисовать экран Игровой мир",
+    owner: "https://t.me/rodiontazetdinov",
+    chat: "https://t.me/+MSIJ7mTxWdoxZDZi",
+    teamTrack: "Design",
+    price: "500 IC",
+  },
+  {
+    text: "Нарисовать экран Тапбар",
+    owner: "https://t.me/rodiontazetdinov",
+    chat: "https://t.me/+MSIJ7mTxWdoxZDZi",
+    teamTrack: "Design",
+    price: "400 IC",
+  },
+  {
+    text: "Нарисовать экран Задания",
+    owner: "https://t.me/rodiontazetdinov",
+    chat: "https://t.me/+MSIJ7mTxWdoxZDZi",
+    teamTrack: "Design",
+    price: "500 IC",
+  },
+  {
+    text: "Нарисовать экран Комьюнити",
+    owner: "https://t.me/rodiontazetdinov",
+    chat: "https://t.me/+MSIJ7mTxWdoxZDZi",
+    teamTrack: "Design",
+    price: "500 IC",
+  },
+  {
+    text: "Нарисовать экран Школа",
+    owner: "https://t.me/rodiontazetdinov",
+    chat: "https://t.me/+MSIJ7mTxWdoxZDZi",
+    teamTrack: "Design",
+    price: "500 IC",
+  },
+  {
+    text: "Нарисовать шаблон для сторис",
+    owner: "https://t.me/rodiontazetdinov",
+    chat: "https://t.me/+MSIJ7mTxWdoxZDZi",
+    teamTrack: "Design",
+    price: "200 IC",
+  },
+  {
+    text: "3D иллюстация города ",
+    owner: "https://t.me/rodiontazetdinov",
+    chat: "https://t.me/+MSIJ7mTxWdoxZDZi",
+    teamTrack: "Design",
+    price: "700 IC",
+  },
+  {
+    text: "Нарисовать изображение Инсайт Койна",
+    owner: "https://t.me/rodiontazetdinov",
+    chat: "https://t.me/+MSIJ7mTxWdoxZDZi",
+    teamTrack: "Design",
+    price: "100 IC",
+  },
+  {
+    text: "Нарисовать аватар для телеграм канала",
+    owner: "https://t.me/rodiontazetdinov",
+    chat: "https://t.me/+MSIJ7mTxWdoxZDZi",
+    teamTrack: "Design",
+    price: "100 IC",
+  },
+];

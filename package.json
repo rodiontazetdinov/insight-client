@@ -1,9 +1,9 @@
 {
-  "name": "bets-client",
+  "name": "insight-client",
   "private": true,
   "version": "0.0.1",
   "type": "module",
-  "homepage": "https://rodiontazetdinov.github.io/bets-client",
+  "homepage": "https://rodiontazetdinov.github.io/insight-client",
   "scripts": {
     "deploy": "gh-pages -d dist",
     "dev": "vite",
@@ -27,7 +27,8 @@
     "eruda": "^3.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.23.0"
+    "react-router-dom": "^6.23.0",
+    "stories-react": "^1.1.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.2.0",
