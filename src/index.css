@@ -7,3 +7,30 @@ body {
   padding: 0;
   margin: 0;
 }
+
+.glass-wrapper {
+  border-radius: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: linear-gradient(180deg, #2a2d32 0%, #161719 99.17%);
+  box-shadow: 36px 40px 56px 0px rgba(0, 0, 0, 0.19);
+}
+
+.glass-top-sheet {
+  position: absolute; /* Чтобы позиционировать его относительно родителя */
+  top: 0; /* Позиция сверху */
+  left: 50%; /* Начальная позиция на 50% */
+  transform: translateX(-50%) translateY(-100%); /* Центрируем элемент по его размерам */
+  width: 80%;
+  max-width: 258px;
+  z-index: 10;
+  height: 456px;
+  border-radius: 0px 0px 90px 90px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.15);
+  background-blend-mode: overlay;
+}
+
+.container {
+  position: relative; /* Для позиционирования элемента-потомка */
+  height: 100%; /* Чтобы контейнер занимал полную высоту */
+}
