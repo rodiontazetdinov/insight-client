@@ -20,32 +20,31 @@ export const TopGlassSheet: FC<TopGlassSheetProps> = ({isOpen}) => {
     config: { tension: 50, friction: 30 }, // Ваши параметры для анимации
   });
 
-  const imgStyles = useSpring({
-    loop: true,
-    to: async (next) => {
-      while (1) {
-        await next({
-          transform: "translateY(-5px) translateX(5px)",
-          config: { tension: 60, friction: 10 },
-        });
-        await next({
-          transform: "translateY(5px) translateX(-5px)",
-          config: { tension: 60, friction: 10 },
-        });
-        await next({
-          transform: "translateY(0px) translateX(0px)",
-          config: { tension: 60, friction: 10 },
-        });
-      }
-    },
-  });
+  // const imgStyles = useSpring({
+  //   loop: true,
+  //   to: async (next) => {
+  //     while (1) {
+  //       await next({
+  //         transform: "translateY(-5px) translateX(5px)",
+  //         rotate: "-1deg",
+  //         config: { tension: 500, friction: 0 },
+  //       });
+  //       await next({
+  //         transform: "translateY(5px) translateX(-5px)",
+  //         rotate: "1deg",
+  //         config: { tension: 500, friction: 0 },
+  //       });
+  //     }
+  //   },
+  // });
 
   return (
     <div className="container">
       {/* <button onClick={() => setIsOpen(!isOpen)}>Toggle Top Sheet</button> */}
-      <animated.div style={styles} className="glass-top-sheet">
-        <animated.img src={vrmanImage} style={imgStyles} />
+      <animated.div style={styles} className={`glass-top-sheet ${isOpen ? "glass-top-sheet_open" : ""}`}>
+        <animated.img src={vrmanImage} />
       </animated.div>
+      {/* <div className="blur"></div> */}
     </div>
   );
 };
