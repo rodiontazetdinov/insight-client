@@ -10,7 +10,7 @@ import shuffleIcon from "./../../../assets/shuffle-icon.png";
 import infoIcon from "./../../../assets/info-icon.png"
 import { InfoPopup } from "@/components/InfoPopup";
 import { useTonConnect } from "../../hooks/useTonConnect";
-import { useBettingContract } from "@/hooks/useBettingContract";
+// import { useBettingContract } from "@/hooks/useBettingContract";
 import ImagesStories from "@/components/ImageStories";
 
 

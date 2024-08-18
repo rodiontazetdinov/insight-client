@@ -3,7 +3,7 @@ import cls from 'classnames';
 
 import rocketIcon from "../../assets/rocket.png";
 import { useTonConnect } from "@/hooks/useTonConnect";
-import { useBettingContract } from "@/hooks/useBettingContract";
+// import { useBettingContract } from "@/hooks/useBettingContract";
 
 interface TeamProps {
   text: string;
@@ -22,7 +22,7 @@ export const Team: FC<TeamProps> = ({
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const { connected } = useTonConnect();
-  const { sendNewBet } = useBettingContract();
+  // const { sendNewBet } = useBettingContract();
 
   const handleBackground = (teamTrack: string) => {
     if (teamTrack?.includes("Bot")) {
