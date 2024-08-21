@@ -2,12 +2,17 @@ import { FC, useState } from "react";
 import { TapBar } from "@/components/TapBar";
 import { TopBar } from "@/components/TopBar";
 import { GlassWrapper } from "@/components/GlassWrapper";
+import { useHapticFeedback } from '@telegram-apps/sdk-react';
 
 import centralButtonImage from "../../assets/central-btn.png";
 
 export const MainPage: FC = () => {
   const [isOpen, setIsOpen] = useState(true);
   const [isPressed, setIsPressed] = useState(false);
+
+  const haptickFeedback = useHapticFeedback();
+
+ 
 
   const handleMouseDown = () => {
     setIsPressed(true);
@@ -30,6 +35,7 @@ export const MainPage: FC = () => {
           onMouseUp={handleMouseUp} 
           onTouchStart={handleMouseDown} 
           onTouchEnd={handleMouseUp}
+          onClick={() => haptickFeedback.impactOccurred('medium')}
         >
           <img src={centralButtonImage} />
         </button>

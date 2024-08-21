@@ -68,9 +68,10 @@ body {
 }
 
 .navigation-button {
-  border-radius: 100%;
-  border: 1px solid rgba(0, 0, 0, 0.21);
-  background: #24272c;
+  background-image: url('./assets/btn-overlay.png');
+  background-size: 100% 100%;
+  width: 62px;
+  height: 62px;
 }
 
 .image-test {
