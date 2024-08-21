@@ -10,7 +10,7 @@ export const TopBar: FC = () => {
   const [isOpen, setIsOpen] = useState(true);
   return (
     <div className="flex flex-row justify-between m-5 w-full">
-      <button
+      {/* <button
         className="navigation-button flex items-center justify-center ml-1"
         onClick={() => navigate(-1)}
       >
@@ -21,7 +21,7 @@ export const TopBar: FC = () => {
         onClick={() => navigate("/settings")}
       >
         <img className="w-[62px] h-[62px]" src={backButtonIcon} />
-      </button>
+      </button> */}
     </div>
   );
 };

@@ -68,7 +68,7 @@ body {
 }
 
 .navigation-button {
-  background-image: url('./assets/btn-overlay.png');
+  background-image: url("./assets/btn-overlay.png");
   background-size: 100% 100%;
   width: 62px;
   height: 62px;
@@ -129,7 +129,7 @@ body {
   right: 0;
   width: 200px; /* Ширина полукруга */
   height: 100px; /* Высота полукруга */
-  background: rgba(86, 204, 242, 0.50); /* Полупрозрачный фон */
+  background: rgba(86, 204, 242, 0.5); /* Полупрозрачный фон */
   border-top-left-radius: 100px; /* Радиус скругления для создания полукруга */
   border-top-right-radius: 100px;
   filter: blur(100px); /* Эффект размытия */
@@ -176,4 +176,23 @@ button {
 .pressed {
   transform: scale(0.95); /* Уменьшаем кнопку при нажатии */
   /* box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5); */
+}
+
+.menu-navlink {
+  color: #ededed;
+
+  text-align: center;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 18px; /* 138.462% */
+  letter-spacing: -0.078px;
+}
+
+.menu-imagelink {
+  border-radius: 40px;
+  background: #202122;
+  box-shadow: -6px -6px 12px 0px rgba(255, 255, 255, 0.25) inset,
+    6px 6px 12px 0px rgba(0, 0, 0, 0.25) inset;
 }

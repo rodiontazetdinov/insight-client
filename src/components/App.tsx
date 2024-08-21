@@ -55,10 +55,28 @@ export const App: FC = () => {
       platform={['macos', 'ios'].includes(lp.platform) ? 'ios' : 'base'}
     >
       <Router location={location} navigator={reactNavigator}>
-        <Routes>
-          {routes.map((route) => <Route key={route.path} {...route} />)}
-          <Route path='*' element={<Navigate to='/'/>}/>
-        </Routes>
+      <Routes>
+  {routes.map((route) => (
+    <Route
+      key={route.path}
+      path={route.path}
+      element={<route.Component />}
+    >
+      {route.children && (
+        <>
+          {route.children.map((childRoute) => (
+            <Route
+              key={childRoute.path}
+              path={childRoute.path}
+              element={<childRoute.Component />}
+            />
+          ))}
+          </>
+      )}
+    </Route>
+  ))}
+  <Route path='*' element={<Navigate to='/'/>}/>
+</Routes>
       </Router>
     </AppRoot>
   );
