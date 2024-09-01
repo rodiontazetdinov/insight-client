@@ -1,33 +1,31 @@
 import { FC, useState } from "react";
 import { TopGlassSheet } from "@/components/TopGlassSheet";
-import fingerPrintIcon from "../../assets/touchid-icon.png";
-import { UnlockBtn } from "@/components/UnlockBtn";
+import fingerPrintIcon from "../../assets/touchid-red-icon.svg";
 import { Link } from "react-router-dom";
 import { GlassWrapper } from "@/components/GlassWrapper";
-import SwipeableCheckbox from "@/components/SwipeableCheckbox";
+import PageWrapper from "@/components/PageWrapper";
+import { FingerPrintButton } from "@/components/FingerPrintButton"; // Импортируем новый компонент
 
 export const WelcomePage: FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const handleSwipe = () => {
+    setIsOpen(true);
+  };
+
   return (
-    <div className="bg-[#191A1D] w-full h-screen flex flex-col px-5 pt-3 pb-11">
+    <PageWrapper>
       <GlassWrapper>
         <TopGlassSheet isOpen={isOpen} />
-        {isOpen && (
+        {isOpen ? (
           <Link to={"/main"} className="w-8 h-8 m-5 z-10">
-            <img className="w-8 h-8" src={fingerPrintIcon} />
+            <img className="w-[86px] h-[63px]" src={fingerPrintIcon} />
           </Link>
-        )}
-        {!isOpen && (
-          <button
-            className="w-8 h-8 m-5 unlock-btn z-10"
-            onClick={() => setIsOpen(true)}
-          >
-            <p className="text-lg">Unlock</p>
-            <UnlockBtn />
-          </button>
+        ) : (
+          <FingerPrintButton onComplete={() => setIsOpen(true)} /> // Используем новый компонент
         )}
         {/* Полукруг в правом нижнем углу */}
       </GlassWrapper>
-    </div>
+    </PageWrapper>
   );
 };

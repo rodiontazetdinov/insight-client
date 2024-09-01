@@ -17,6 +17,14 @@ body {
   box-shadow: 36px 40px 56px 0px rgba(0, 0, 0, 0.19);
 }
 
+.glass-wrapper2 {
+  border-radius: 40px;
+  overflow: hidden;
+border: 2px solid #D9CCC4;
+background: linear-gradient(180deg, #D9CCC4 0%, #F1E8E6 99.17%);
+box-shadow: 36px 40px 56px 0px rgba(0, 0, 0, 0.19), 9px 10px 10.3px 0px rgba(36, 36, 36, 0.25);
+}
+
 .glass-top-sheet {
   position: absolute; /* Чтобы позиционировать его относительно родителя */
   top: 15px; /* Позиция сверху */

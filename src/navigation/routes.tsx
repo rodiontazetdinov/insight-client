@@ -11,6 +11,7 @@ import { TasksPage } from "@/pages/TasksPage";
 import { CommunityPage } from "@/pages/CommunityPage";
 import { GameworldPage } from "@/pages/GameworldPage";
 import { EventsPage } from "@/pages/EventsPage";
+import  TestPage  from "@/pages/TestPage";
 
 interface Route {
   path: string;
@@ -55,6 +56,11 @@ export const routes: Route[] = [
   {
     path: "/tasks",
     Component: TasksPage,
+    title: "Tasks",
+  },
+  {
+    path: "/test",
+    Component: TestPage,
     title: "Tasks",
   },
   {

@@ -5,6 +5,7 @@ import { GlassWrapper } from "@/components/GlassWrapper";
 import { useHapticFeedback } from '@telegram-apps/sdk-react';
 
 import centralButtonImage from "../../assets/central-btn.png";
+import PageWrapper from "@/components/PageWrapper";
 
 export const MainPage: FC = () => {
   const [isOpen, setIsOpen] = useState(true);
@@ -23,7 +24,7 @@ export const MainPage: FC = () => {
   };
 
   return (
-    <div className="bg-[#191A1D] w-full h-screen flex flex-col px-5 pt-3 pb-11">
+    <PageWrapper>
       <GlassWrapper stylesClasses="justify-between">
         <TopBar />
         <p className="text-[23px] font-thin line-through text-[#3E4146]">Absolutly Nothing</p>
@@ -41,6 +42,6 @@ export const MainPage: FC = () => {
         </button>
         <TapBar />
       </GlassWrapper>
-    </div>
+    </PageWrapper>
   );
 };
