@@ -1,7 +1,6 @@
 import type { ComponentType, JSX } from "react";
 
 import { TONConnectPage } from "@/pages/TONConnectPage/TONConnectPage";
-import { BetsPage } from "@/pages/BetsPage/BetsPage";
 import { WelcomePage } from "@/pages/WelcomePage";
 import { MainPage } from "@/pages/MainPage";
 import { ProfilePage } from "@/pages/ProfilePage";
@@ -11,7 +10,7 @@ import { TasksPage } from "@/pages/TasksPage";
 import { CommunityPage } from "@/pages/CommunityPage";
 import { GameworldPage } from "@/pages/GameworldPage";
 import { EventsPage } from "@/pages/EventsPage";
-import  TestPage  from "@/pages/TestPage";
+import StoriesPage from "@/pages/StoriesPage";
 
 interface Route {
   path: string;
@@ -22,7 +21,11 @@ interface Route {
 }
 
 export const routes: Route[] = [
-  { path: "/", Component: WelcomePage, title: "Welcome to Insight" },
+  { path: "/", Component: StoriesPage, title: "Welcome to Insight" },
+  // {
+  //   path: '/',
+  //   element: <StoriesPage />,
+  // },
   { path: "/main", Component: MainPage, title: "Something More" },
   {
     path: "/menu",
@@ -56,11 +59,6 @@ export const routes: Route[] = [
   {
     path: "/tasks",
     Component: TasksPage,
-    title: "Tasks",
-  },
-  {
-    path: "/test",
-    Component: TestPage,
     title: "Tasks",
   },
   {
