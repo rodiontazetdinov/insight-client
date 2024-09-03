@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import startStory1 from './../../assets/firststory/111.png';
 import startStory2 from './../../assets/firststory/222.png';
+import loader from './../../assets/firststory/gears-spinner.svg';
 import { GlassWrapper } from '@/components/GlassWrapper';
 import PageWrapper from '@/components/PageWrapper';
 const stories = [
@@ -11,20 +12,48 @@ const stories = [
 
 const StoriesPage: React.FC = () => {
   const [currentStory, setCurrentStory] = useState(0);
+  const [imagesLoaded, setImagesLoaded] = useState(false);
   const navigate = useNavigate();
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
+    const loadImages = async () => {
+      const imagePromises = stories.map((story) => {
+        return new Promise((resolve) => {
+          const img = new Image();
+          img.src = story.image;
+          img.onload = resolve;
+        });
+      });
+      await Promise.all(imagePromises);
+      setImagesLoaded(true);
+    };
+    loadImages();
+  }, []);
+
+  useEffect(() => {
+    if (!imagesLoaded) return;
+
+    timerRef.current = setTimeout(() => {
       if (currentStory < stories.length - 1) {
         setCurrentStory(currentStory + 1);
       } else {
-        // Редирект на /main после завершения всех сторис
         navigate('/main');
       }
-    }, 3000);
+    }, 4000);
 
-    return () => clearTimeout(timer);
-  }, [currentStory, navigate]);
+    return () => {
+      if (timerRef.current) clearTimeout(timerRef.current);
+    };
+  }, [currentStory, navigate, imagesLoaded]);
+
+  if (!imagesLoaded) {
+    return (
+      <div className='h-screen w-screen flex items-center justify-center bg-black'>
+        <img src={loader} alt="Loading" className="w-full h-full object-cover" />
+      </div>
+    );
+  }
 
   return (
     <PageWrapper>
